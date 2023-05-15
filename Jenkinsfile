@@ -1,25 +1,10 @@
 pipeline {
-    agent none
+    agent { dockerfile true }
 
     stages {
-        stage ('Inicial') {
-            steps {
-                echo 'Initial pipeline'
-            }
-        }
-
-        stage('Back-end') {
-            agent {
-                docker { image 'docker-jefao_app' }
-            }
+        stage('Test') {
             steps {
                 sh 'docker ps'
-            }
-        }
-
-        stage ('Finish deploy') {
-            steps {
-                echo 'Hello World'
             }
         }
     }
