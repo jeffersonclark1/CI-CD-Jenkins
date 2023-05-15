@@ -3,8 +3,11 @@ pipeline {
 
     stages {
         stage('Test') {
+            agent any
             steps {
-                sh 'docker ps'
+                sh label: '', script: '''
+                    docker-compose build
+                '''
             }
         }
     }
