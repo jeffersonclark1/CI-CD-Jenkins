@@ -8,9 +8,21 @@ pipeline {
             }
         }
 
-        stage ('Update project') {
+        stage ('Build') {
             steps {
-                sh 'docker-compose restart docker-jefao_app_1'
+                sh 'docker-compose build'
+            }
+        }
+
+        stage ('Starning server') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+
+        stage ('Finish deploy') {
+            steps {
+                echo 'Hello World'
             }
         }
     }
