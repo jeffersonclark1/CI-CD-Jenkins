@@ -6,7 +6,7 @@ pipeline {
             agent any
             steps {
                 sh label: '', script: '''
-                    docker-compose build
+                    docker ps
                 '''
             }
         }
