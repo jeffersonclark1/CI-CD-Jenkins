@@ -10,7 +10,7 @@ pipeline {
 
         stage('docker-compose') {
             steps {
-                sh './wait-for.sh'
+                sh './wait-for.sh jenkinstests'
             }
         }
 
