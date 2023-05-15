@@ -8,15 +8,12 @@ pipeline {
             }
         }
 
-        stage ('Build') {
-            steps {
-                sh 'docker-compose build'
-            }
-        }
-
-        stage ('Starning server') {
-            steps {
-                sh 'docker-compose up -d'
+        stages {
+            stage('docker-compose') {
+                steps {
+                    sh "docker-compose build"
+                    sh "docker-compose up -d"
+                }
             }
         }
 
