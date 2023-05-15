@@ -8,10 +8,12 @@ pipeline {
             }
         }
 
-        stage ('docker-compose') {
-            agent any
+        stage('Back-end') {
+            agent {
+                docker { image 'docker-jefao_app' }
+            }
             steps {
-                sh 'docker build'
+                sh 'docker ps'
             }
         }
 
