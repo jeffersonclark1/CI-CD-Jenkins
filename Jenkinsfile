@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage ('Inicial') {
@@ -9,8 +9,9 @@ pipeline {
         }
 
         stage ('docker-compose') {
+            agent any
             steps {
-                sh './wait-for.sh jenkinstests'
+                sh 'docker-compose build'
             }
         }
 
