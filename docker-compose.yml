@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  jenkins:
+    container_name: jenkins
+    build: './docker/jenkins'
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/jenkins/:/var/jenkins_home
+
+  app:
+    build: './docker/api'
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
