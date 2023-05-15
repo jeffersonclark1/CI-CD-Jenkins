@@ -9,7 +9,7 @@ pipeline {
         }
 
         stage ('Update project') {
-            docker-compose restart docker-jefao_app_1
+            sh 'docker-compose restart docker-jefao_app_1'
         }
     }
 }
